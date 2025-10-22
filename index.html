@@ -1,1 +1,416 @@
-test
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surrey AI Labs | Pioneering Intelligent Solutions</title>
+    <meta name="description" content="Surrey AI Labs Ltd develops cutting-edge artificial intelligence solutions to solve complex business challenges.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- CSS Reset & Base Styles --- */
+        :root {
+            --bg-color: #0D1117;
+            --text-color: #E6EDF3;
+            --primary-color: #3081F7;
+            --secondary-color: #161B22;
+            --border-color: #30363D;
+            --text-muted: #8B949E;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            overflow-x: hidden;
+        }
+
+        /* --- Animated Background --- */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(circle at 20% 20%, rgba(48, 129, 247, 0.1), transparent 30%),
+                        radial-gradient(circle at 80% 70%, rgba(48, 129, 247, 0.1), transparent 30%);
+            animation: pulse 15s infinite ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* --- Utility & Layout --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.2;
+            font-weight: 600;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            letter-spacing: -1.5px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Header & Navigation --- */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            padding: 1rem 0;
+            background: rgba(13, 17, 23, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .main-header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--primary-color);
+        }
+
+        .main-nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        .main-nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--primary-color);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .hamburger .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--text-color);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 80px; /* Offset for fixed header */
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            background: -webkit-linear-gradient(45deg, var(--primary-color), var(--text-color) 60%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem auto;
+            color: var(--text-muted);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(48, 129, 247, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(48, 129, 247, 0.3);
+        }
+
+        /* --- Features Section --- */
+        #features {
+            border-top: 1px solid var(--border-color);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: var(--secondary-color);
+            padding: 2.5rem 2rem;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            text-align: left;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* --- About Section --- */
+        .about-content {
+            max-width: 750px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .about-content p {
+            font-size: 1.1rem;
+            color: var(--text-color);
+        }
+
+        /* --- Footer --- */
+        .main-footer {
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            background: var(--secondary-color);
+        }
+
+        .main-footer p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.8rem; }
+            h2 { font-size: 2rem; }
+            
+            .main-nav {
+                position: fixed;
+                top: 0;
+                right: -100%; /* Start off-screen */
+                width: 100%;
+                height: 100vh;
+                background: var(--bg-color);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.4s ease-in-out;
+            }
+
+            .main-nav.is-active {
+                right: 0;
+            }
+
+            .main-nav ul {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .main-nav li {
+                margin: 1.5rem 0;
+            }
+            
+            .main-nav a {
+                font-size: 1.5rem;
+            }
+
+            .hamburger {
+                display: block;
+                z-index: 101; /* Ensure it's above the nav */
+            }
+
+            .hamburger.is-active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.is-active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.is-active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">surrey<span>.ai</span></a>
+            <nav class="main-nav" id="main-nav">
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Services</a></li>
+                    <li><a href="#contact" class="cta-button-nav">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="hamburger" id="hamburger-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Pioneering the Future of Intelligence</h1>
+                    <p>Surrey AI Labs crafts bespoke artificial intelligence solutions that drive innovation, efficiency, and growth for your business.</p>
+                    <a href="#contact" class="cta-button">Get In Touch &rarr;</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="features" class="container">
+            <h2>What We Do</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">🧠</span>
+                    <h3>Machine Learning Models</h3>
+                    <p>We design and deploy custom machine learning models for prediction, classification, and data analysis to unlock actionable insights.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">⚙️</span>
+                    <h3>Process Automation</h3>
+                    <p>Leverage AI to automate repetitive tasks, streamline workflows, and free up your team to focus on high-value strategic initiatives.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📊</span>
+                    <h3>Data Strategy & Analytics</h3>
+                    <p>From data architecture to advanced analytics, we help you build a solid foundation to make smarter, data-driven decisions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="container">
+            <div class="about-content">
+                <h2>Our Mission</h2>
+                <p>At Surrey AI Labs, our mission is to demystify artificial intelligence and make its transformative power accessible to businesses of all sizes. We believe in a collaborative, research-driven approach to create solutions that are not only technologically advanced but also ethically sound and practically valuable.</p>
+            </div>
+        </section>
+        
+        <section id="contact" class="container">
+            <div class="about-content">
+                <h2>Let's Build Together</h2>
+                <p>Have a challenge you think AI can solve? We'd love to hear about it. Reach out to start a conversation about your project.</p>
+                <a href="mailto:hello@surrey.ai" class="cta-button">Contact Us</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <p>&copy; 2024 Surrey AI Labs Ltd. All rights reserved.</p>
+            <p>Surrey AI Labs Ltd is registered in England and Wales with company number 16791191.</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Mobile Navigation Toggle ---
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const mainNav = document.getElementById('main-nav');
+
+        hamburgerMenu.addEventListener('click', () => {
+            hamburgerMenu.classList.toggle('is-active');
+            mainNav.classList.toggle('is-active');
+        });
+        
+        // Close nav when a link is clicked
+        mainNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                 hamburgerMenu.classList.remove('is-active');
+                 mainNav.classList.remove('is-active');
+            });
+        });
+    </script>
+
+</body>
+</html>
